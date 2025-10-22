@@ -1,0 +1,626 @@
+/* 430px 반응형 */
+@media (max-width: 430px) {
+    body {
+        min-width: auto;
+        overflow: visible;
+    }
+
+    .centerbox {
+        max-width: 95%;
+        padding: 0 2.5vw;
+    }
+
+    /*section1*/
+    .section1 {
+        margin-bottom: 10vh;
+    }
+
+    .section1 .line1 {
+        width: 35vw;
+        height: 2px;
+        margin-top: 10vh;
+    }
+
+    .section1 .line2 {
+        width: 35vw;
+        height: 2px;
+        margin-top: 3vh;
+    }
+
+    .section1 .text_box h2,
+    .section1 .text_box h3,
+    .section1 .text_box h4 {
+        font-size: 2.5rem;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    .section1 p {
+        font-size: 1.2rem;
+        margin-top: 2vh;
+    }
+
+
+    /*section2*/
+    .section2 {
+        position: relative;
+        padding-top: 5vh;
+        text-align: center;
+    }
+
+    .section2 .centerbox {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .section2 .img_box {
+        order: 1;
+        width: 100%;
+        margin-bottom: 3vh;
+        position: static !important;
+    }
+
+    .section2 .img_box .me {
+        position: static !important;
+        transform: none !important;
+    }
+
+    .section2 .img_box .me img {
+        width: 130px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .section2 .content_box {
+        order: 2;
+        width: 100%;
+    }
+
+    .section2 .tbox1,
+    .section2 .tbox2,
+    .section2 .tbox3 {
+        text-align: center !important;
+    }
+
+    .section2 .double-line {
+        display: inline-block;
+        margin: 2vh auto;
+        text-align: center;
+    }
+
+    .section2 .graph_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto 3vh;
+    }
+
+    .section2 .graph_box img {
+        width: 100%;
+        max-width: 230px;
+        height: auto;
+        display: block;
+    }
+
+
+    /*section3*/
+    .section3 {
+        padding: 8vh 0;
+        margin-top: 5vh;
+    }
+
+    .section3 h1 {
+        font-size: 2.2rem;
+        margin-bottom: 4vh;
+    }
+
+    .skill-box li {
+        font-size: 0.85rem;
+        padding: 1vh 3vw;
+        margin-right: 2.5vw;
+        margin-bottom: 1.5vh;
+        border-radius: 1.5vw;
+    }
+
+
+    /*section4*/
+    .section4 {
+        padding: 6vh 0;
+    }
+
+    .section4 h1 {
+        font-size: 2.2rem;
+        margin-bottom: 4vh;
+        text-align: center;
+    }
+
+    .section4 .one {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4vh;
+        margin-bottom: 10vh;
+    }
+
+    .section4 .one .content_box {
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .section4 .one .content_box .title {
+        font-size: 1.5rem;
+        margin-bottom: 0vh !important;
+    }
+
+    .section4 .one .content_box .line1 {
+        width: 35vw;
+        height: 2px;
+        background: #ccc;
+        margin: 0 auto 2vh auto;
+    }
+
+    .section4 .one .content_box .text_box {
+        margin-top: 0vh !important;
+    }
+
+    .section4 .one .content_box .text_box .title1 {
+        font-size: 0.85rem;
+        margin-bottom: 1vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5vh;
+    }
+
+    .section4 .one .content_box .text_box .title1 .label {
+        min-width: auto;
+        margin-bottom: 0.3vh;
+    }
+
+    /* 컴퓨터 전체 */
+    .section4 .computer {
+        position: relative;
+        width: 86%;
+        max-width: 360px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 모니터 본체 */
+    .section4 .computer .monitor {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+
+    /* 모니터 프레임 이미지 */
+    .section4 .computer .com1 {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* 모니터 안쪽 화면 영역 */
+    .section4 .computer .screen {
+        position: absolute;
+        top: 6.5%;
+        left: 7%;
+        width: 86%;
+        height: 50%;
+        overflow: hidden;
+        border-radius: 2px;
+        z-index: 1;
+    }
+
+    /* 웹페이지 이미지 - 처음에 화면 위에 숨김 */
+    .section4 .computer .webimg {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin-top: 0 !important;
+        /* ✅ 이미 있음 - 좋음! */
+        margin-left: 0 !important;
+        /* ✅ 추가 */
+        transform: translateY(-100%) !important;
+        transition: transform 1.8s ease-out !important;
+        position: relative !important;
+    }
+
+    .section4 .computer.on .webimg {
+        margin-top: 0 !important;
+        /* ✅ 추가 - reaction.css 덮어쓰기 */
+        transform: translateY(0) !important;
+    }
+
+    /* 받침대 숨김 */
+    .section4 .computer .com2box {
+        display: none;
+    }
+
+    .section4 .one {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 4vh;
+    }
+
+    .section4 .one:nth-of-type(2n) {
+        flex-direction: column-reverse;
+    }
+
+
+    /*section5*/
+    .section5 {
+        padding: 8vh 0;
+    }
+
+    .section5 h1 {
+        font-size: 2.2rem;
+        margin-bottom: 4vh;
+    }
+
+    .section5 ul {
+        gap: 1.5vw;
+    }
+
+    .section5 ul li {
+        font-size: 0.85rem;
+        padding: 1vh 3vw;
+        margin: 0.5vh 1vw;
+    }
+
+    /*section6*/
+    /*section6*/
+    .section6 {
+        position: relative !important;
+        overflow: visible !important;
+        min-height: auto !important;
+        padding: 6vh 0 3vh 0 !important;
+        margin: 0 auto !important;
+        z-index: 2 !important;
+    }
+
+    .section6 h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 15vh !important;
+        text-align: center !important;
+    }
+
+    /* 🔹 이미지 그룹 */
+    .section6 .imgbox {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6vh !important;
+    }
+
+    /* 🔹 이미지 컨테이너 */
+    .section6 .imgbox .left_img,
+    .section6 .imgbox .rigth_img {
+        width: 80% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
+        position: relative !important;
+        top: 0 !important;
+        z-index: 5 !important;
+    }
+
+    /* 🔹 아래쪽 이미지(루미노트)만 더 내림 */
+    .section6 .imgbox .rigth_img {
+        margin-top: 20vh !important;
+        /* 추가 - 아래로 더 내림 */
+    }
+
+    /* 🔹 이미지 */
+    .section6 .imgbox img {
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        border-radius: 2vw !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* 🔹 텍스트 박스 (항상 표시됨) */
+    .section6 .big_textbox {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        width: 90% !important;
+        max-width: 340px !important;
+        margin: 2vh auto 0 auto !important;
+        padding: 3vh 5vw !important;
+        border-radius: 5vw !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        color: #fff !important;
+        z-index: 10 !important;
+    }
+
+    /* 🔹 김급식 텍스트 (위쪽) */
+    .section6 .imgbox .left_img .big_textbox {
+        margin-top: 2vh !important;
+    }
+
+    /* 🔹 루미노트 텍스트 (아래쪽) */
+    .section6 .imgbox .rigth_img .big_textbox {
+        margin-top: 2vh !important;
+    }
+
+    /* 🔹 내부 텍스트 스타일 */
+    .section6 .big_textbox .title {
+        font-size: 1.1rem !important;
+        margin-bottom: 1vh !important;
+        color: #fff !important;
+    }
+
+    .section6 .big_textbox .line1 {
+        width: 30% !important;
+        height: 2px !important;
+        background: #fff !important;
+        margin-bottom: 1.5vh !important;
+    }
+
+    .section6 .big_textbox .text_box {
+        margin-top: 1.5vh !important;
+    }
+
+    .section6 .big_textbox .text_box .title1 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.5vh !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.3vh !important;
+        color: #ddd !important;
+    }
+
+    .section6 .big_textbox .text_box .title1 .label {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.3vh !important;
+    }
+
+    .section6 .big_textbox .text_box .title1 .text .swatch {
+        width: 4vw !important;
+        height: 4vw !important;
+        border-radius: 50%;
+        background: var(--c);
+        margin-right: 1vw;
+    }
+
+
+    /*section7*/
+    .section7 {
+        margin: 0vh 0 !important;
+        padding: 3vh 0 !important;
+    }
+
+    .section7 .centerbox {
+        width: 95%;
+    }
+
+    .section7 h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 4vh !important;
+    }
+
+    .section7 .imgbox .top_img,
+    .section7 .imgbox .bottom_img {
+        margin-top: 4vh;
+        width: 70% !important;
+        /* 추가 - 이미지 너비 줄임 */
+        max-width: 280px !important;
+        /* 추가 - 최대 너비 제한 */
+        margin-left: auto !important;
+        /* 추가 - 중앙 정렬 */
+        margin-right: auto !important;/
+    }
+
+    .section7 .imgbox .top_img img,
+    .section7 .imgbox .bottom_img img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox,
+    .section7 .imgbox .bottom_img .big_textbox {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin-top: 2vh !important;
+        padding: 3vh 5vw !important;
+        border-radius: 5vw !important;
+    }
+
+    .section6 .imgbox .rigth_img .big_textbox {
+        top: -18vh !important;
+        /* -12vh → -18vh로 변경 (더 위로) */
+        bottom: auto !important;
+        right: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .title,
+    .section7 .imgbox .bottom_img .big_textbox .title {
+        font-size: 1.3rem !important;
+        margin-bottom: 1.5vh !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .line1,
+    .section7 .imgbox .bottom_img .big_textbox .line1 {
+        width: 25vw !important;
+        height: 2px !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .text_box,
+    .section7 .imgbox .bottom_img .big_textbox .text_box {
+        margin-top: 2vh !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .text_box .title1,
+    .section7 .imgbox .bottom_img .big_textbox .text_box .title1 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        margin-bottom: 1.2vh !important;
+        gap: 0.5vh !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .text_box .title1 .label,
+    .section7 .imgbox .bottom_img .big_textbox .text_box .title1 .label {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.3vh !important;
+    }
+
+    .section7 .imgbox .top_img .big_textbox .text_box .title1 .text .swatch,
+    .section7 .imgbox .bottom_img .big_textbox .text_box .title1 .text .swatch {
+        width: 4vw !important;
+        height: 4vw !important;
+    }
+
+    /*section8*/
+    .section8 {
+        padding: 5vh 0;
+        margin: 8vh 0;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .section8 h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 4vh !important;
+    }
+
+    .section8 video {
+        width: 75vw !important;
+        max-width: 300px !important;
+        transform: none !important;
+        scale: 1 !important;
+    }
+
+    /*section9*/
+.section9 {
+    margin-top: 8vh;
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 4vh 0 !important;
+    background: #000 !important;
+}
+
+.section9 h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 3vh !important;
+    text-align: center !important;
+    color: #fff !important;
+}
+
+.section9 .centerbox {
+    width: 95vw !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* ✅ 모든 사진 2열 정렬 */
+.photo-wall {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3vw !important;
+    justify-items: center !important;
+    align-items: start !important;
+    padding: 0 3vw !important;
+}
+
+/* ✅ 개별 사진 컨테이너 스타일 */
+.section9 .photo {
+    width: 35vw !important;
+    height: auto !important;
+    transform: none !important;
+    rotate: 0deg !important;
+    opacity: 1 !important;
+    position: relative !important;      /* ✅ 반드시 추가 */
+    visibility: visible !important;     /* ✅ 혹시 모르니 추가 */
+    left: auto !important;              /* ✅ 혹시 남아있을 값 제거 */
+    top: auto !important;
+}
+
+/* ✅ 사진 이미지 스타일 */
+.section9 .photo img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 2vw !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+    transform: none !important;
+    position: relative !important;      /* ✅ 기존 absolute 제거 */
+    left: auto !important;
+    top: auto !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ✅ hover 확대 효과 유지 */
+.section9 .photo img:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ 첫 번째 사진은 크게 2칸 차지 */
+.section9 .photo:first-child {
+    grid-column: span 2 !important;
+    width: 70vw !important;
+}
+
+    /*section10*/
+    .section10 {
+        margin-top: 8vh;
+        padding: 0 0 5vh 0 !important;
+    }
+
+    .section10 .text_container {
+        padding: 5% 5% 10% 5% !important;
+    }
+
+    .section10 .left_textbox {
+        font-size: 1.8rem !important;
+    }
+
+    .section10 .left_textbox h2 {
+        font-size: 1.8rem !important;
+        margin: 0.5vh 0 !important;
+    }
+
+    .section10 .left_textbox h3 {
+        font-size: 0.9rem !important;
+        margin-top: 1.5vh !important;
+        margin-bottom: 1.5vh !important;
+    }
+
+    .section10 .line {
+        height: 1.5px !important;
+        margin-bottom: 1vh !important;
+    }
+
+    .section10 .right_textbox p {
+        font-size: 1.1rem !important;
+        margin: 0.3vh 0 !important;
+    }
+
+    .section10 .right_textbox .number {
+        font-size: 0.9rem !important;
+    }
+}
