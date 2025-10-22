@@ -148,14 +148,22 @@
     }
 
     /*section5*/
+    .section5 {
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
     .section5 ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1vh;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 2vw;
+        width: max-content;
+        min-width: 200%;
     }
 
     .section5 ul li {
         margin: 0.5vh 0.5vw;
+        flex-shrink: 0;
     }
 
     /*section6*/
@@ -579,6 +587,8 @@
     /*section5*/
     .section5 {
         padding: 10vh 0;
+        overflow-x: hidden;
+        overflow-y: visible;
     }
 
     .section5 h1 {
@@ -587,13 +597,18 @@
     }
 
     .section5 ul {
-        gap: 2vw;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 3vw;
+        width: max-content;
+        min-width: 250%;
     }
 
     .section5 ul li {
         font-size: 0.9rem;
         padding: 1vh 2vw;
         margin: 0.5vh 1vw;
+        flex-shrink: 0;
     }
 
     /*section6*/
@@ -807,4 +822,3 @@
         font-size: 0.95rem !important;
     }
 }
-*/
