@@ -300,7 +300,6 @@
         overflow: visible !important;
         min-height: auto !important;
         padding: 6vh 0 !important;
-        /* 다른 섹션과 동일한 패딩 */
         margin: 0 auto !important;
         z-index: 2 !important;
     }
@@ -314,7 +313,6 @@
     .section6 h1 {
         font-size: 2.2rem !important;
         margin-bottom: 4vh !important;
-        /* 다른 섹션과 동일한 마진 */
         text-align: center !important;
     }
 
@@ -324,7 +322,6 @@
         align-items: center !important;
         justify-content: center !important;
         gap: 4vh !important;
-        /* 간격 줄임 */
     }
 
     .section6 .imgbox .left_img,
@@ -339,7 +336,6 @@
 
     .section6 .imgbox .rigth_img {
         margin-top: 4vh !important;
-        /* 간격 줄임 */
     }
 
     .section6 .imgbox img {
@@ -373,7 +369,7 @@
     }
 
     .section6 .imgbox .rigth_img .big_textbox {
-        margin-top: 2vh !important;
+        margin-top: 25vh !important;
     }
 
     .section6 .big_textbox .title {
@@ -390,7 +386,7 @@
     }
 
     .section6 .big_textbox .text_box {
-        margin-top: 1.5vh !important;
+        margin-top: 2vh !important;
     }
 
     .section6 .big_textbox .text_box .title1 {
@@ -419,9 +415,7 @@
     /*section7*/
     .section7 {
         margin: 0vh 0 !important;
-        /* 상단 마진 0으로 */
         padding: 30vh 0 !important;
-        /* 다른 섹션과 동일한 패딩 */
     }
 
     .section7 .pin-spacer {
@@ -436,13 +430,11 @@
     .section7 h1 {
         font-size: 2.2rem !important;
         margin-bottom: 4vh !important;
-        /* 다른 섹션과 동일한 마진 */
     }
 
     .section7 .imgbox .top_img,
     .section7 .imgbox .bottom_img {
         margin-top: 2vh;
-        /* 간격 줄임 */
         width: 70% !important;
         max-width: 280px !important;
         margin-left: auto !important;
