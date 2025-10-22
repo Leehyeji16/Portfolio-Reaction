@@ -185,6 +185,7 @@ document.querySelectorAll(".section4 .text").forEach((box) => {
 });
 
 //각 모니터
+
 document.querySelectorAll(".section4 .one1, .section4 .one2, .section4 .one3, .section4 .one4, .section4 .one5, .section4 .one6")
   .forEach((oneBox) => {
     let computer = oneBox.querySelector(".computer");
@@ -205,25 +206,53 @@ document.querySelectorAll(".section4 .one1, .section4 .one2, .section4 .one3, .s
 // ------------------------------------------------
 // 07. Section 5 : Banner & Popup (가로 스크롤)
 // ------------------------------------------------
-let ul = document.querySelector(".section5 ul");
+function setupSection5Animation() {
+  const ul = document.querySelector(".section5 ul");
+  if (!ul) return;
 
-gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section5",
-    start: "top top",
-    end: () => "+=" + (ul.offsetWidth - window.innerWidth),
-    scrub: true,
-    pin: true
-  }
-}).fromTo(".section5 ul",
-  { x: "50%" },  // 처음에 오른쪽으로 50% 밀려 있음
-  { x: () => -(ul.offsetWidth - window.innerWidth), ease: "none" }, 's5'
-).to(".mainImgWrap", {
-  marginLeft: -150,
-  top: "1025%",
-  scale: 20,
-  rotate: 0
-}, 's5');
+  // 기존 ScrollTrigger 제거
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.vars.trigger === ".section5") {
+      trigger.kill();
+    }
+  });
+
+  // 화면 크기에 따른 설정
+  const isMobile = window.innerWidth <= 1200;
+  
+  // 가로 스크롤 애니메이션
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section5",
+      start: "top top",
+      end: () => "+=" + (ul.offsetWidth - window.innerWidth),
+      scrub: true,
+      pin: true,
+      invalidateOnRefresh: true // 리사이즈 시 다시 계산
+    }
+  }).fromTo(".section5 ul",
+    { x: isMobile ? "30%" : "50%" },  // 모바일에서는 덜 밀려있게
+    { x: () => -(ul.offsetWidth - window.innerWidth), ease: "none" }, 's5'
+  ).to(".mainImgWrap", {
+    marginLeft: -150,
+    top: "1025%",
+    scale: 20,
+    rotate: 0
+  }, 's5');
+}
+
+// 최초 실행
+setupSection5Animation();
+
+// 리사이즈 대응
+let resizeTimer5;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer5);
+  resizeTimer5 = setTimeout(() => {
+    setupSection5Animation();
+    ScrollTrigger.refresh();
+  }, 300);
+});
 
 
 // ------------------------------------------------
@@ -232,14 +261,6 @@ gsap.timeline({
 function setupSection6Animation() {
   // 🔹 430px 이하에서는 애니메이션 완전 비활성화
   if (window.innerWidth <= 430) {
-    // 즉시 표시 (이미지 + 텍스트박스)
-    document.querySelectorAll(".section6 img, .section6 .big_textbox").forEach(el => {
-      el.style.opacity = "1";
-      el.style.transform = "none";
-      el.style.transition = "none";
-      el.style.animation = "none";
-    });
-
     // section6 관련 ScrollTrigger 제거
     if (window.ScrollTrigger) {
       ScrollTrigger.getAll().forEach(trigger => {
@@ -249,12 +270,23 @@ function setupSection6Animation() {
       });
     }
 
-    // section6 강제로 표시
+    // 즉시 표시 (이미지 + 텍스트박스)
+    document.querySelectorAll(".section6 img, .section6 .big_textbox").forEach(el => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      el.style.transition = "none";
+      el.style.animation = "none";
+      el.style.position = "relative";  // ✅ 추가
+    });
+
+    // section6 강제로 표시 및 높이 조정
     const sec6 = document.querySelector(".section6");
     if (sec6) {
       sec6.style.opacity = "1";
       sec6.style.visibility = "visible";
       sec6.style.display = "block";
+      sec6.style.minHeight = "auto";  // ✅ 추가
+      sec6.style.height = "auto";     // ✅ 추가
     }
 
     return; // ✅ 더 이상 아래 코드 실행 안 함
@@ -273,34 +305,34 @@ function setupSection6Animation() {
   gsap.timeline({
     scrollTrigger: {
       trigger: ".section6",
-      start: isMobile ? "top 70%" : "top top",  // 더 빨리 시작
+      start: isMobile ? "top 70%" : "top top",
       end: isMobile ? "bottom 60%" : "bottom top",
-      scrub: 1,  // scrub 값을 낮춰서 더 빠르게 반응
-      pin: !isMobile,
+      scrub: 1,
+      pin: false, // ✅ pin 기능 완전 비활성화
       markers: false
     }
   })
     // 이미지 등장 - 속도 빠르게
     .from(".section6 .app_img", {
-      y: isMobile ? 30 : 80,  // 이동 거리 줄임
+      y: isMobile ? 30 : 80,
       autoAlpha: 0,
-      duration: isMobile ? 0.3 : 0.8,  // 시간 단축
+      duration: isMobile ? 0.3 : 0.8,
       ease: "power2.out"
     })
     // 왼쪽 텍스트박스 등장 - 속도 빠르게
     .from(".section6 .left_img .big_textbox", {
-      x: isMobile ? "-200px" : "-80vw",  // 이동 거리 줄임
+      x: isMobile ? "-200px" : "-80vw",
       autoAlpha: 0,
-      duration: isMobile ? 0.3 : 0.6,  // 시간 단축
+      duration: isMobile ? 0.3 : 0.6,
       ease: "power2.out"
-    }, isMobile ? "-=0.2" : "-=0.4")  // 겹치는 시간 늘림
+    }, isMobile ? "-=0.2" : "-=0.4")
     // 오른쪽 텍스트박스 등장 - 속도 빠르게
     .from(".section6 .rigth_img .big_textbox", {
-      x: isMobile ? "200px" : "80vw",  // 이동 거리 줄임
+      x: isMobile ? "200px" : "80vw",
       autoAlpha: 0,
-      duration: isMobile ? 0.3 : 0.6,  // 시간 단축
+      duration: isMobile ? 0.3 : 0.6,
       ease: "power2.out"
-    }, isMobile ? "-=0.2" : "-=0.4")  // 겹치는 시간 늘림
+    }, isMobile ? "-=0.2" : "-=0.4")
     // 메인 이미지 이동 (공통)
     .to(".mainImgWrap", {
       marginLeft: -1050,
@@ -314,10 +346,10 @@ function setupSection6Animation() {
 setupSection6Animation();
 
 // 🔹 리사이즈 대응
-let resizeTimer;
+let resizeTimer6;  // ✅ 변수명 변경 (다른 섹션과 충돌 방지)
 window.addEventListener('resize', () => {
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => {
+  clearTimeout(resizeTimer6);
+  resizeTimer6 = setTimeout(() => {
     setupSection6Animation();
     ScrollTrigger.refresh();
   }, 300);
@@ -326,44 +358,154 @@ window.addEventListener('resize', () => {
 // ------------------------------------------------
 // 09. Section 7 : Collaborative Work
 // ------------------------------------------------
-gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section7",
-    start: "top 50%",
-    end: 'bottom top',
-    scrub: true,
+function setupSection7Animation() {
+  // 🔹 430px 이하에서는 애니메이션 완전 비활성화
+  if (window.innerWidth <= 430) {
+    // 즉시 표시 (텍스트박스)
+    document.querySelectorAll(".section7 .big_textbox").forEach(el => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+      el.style.left = "auto";
+      el.style.right = "auto";
+      el.style.transition = "none";
+      el.style.animation = "none";
+    });
+
+    // section7 관련 ScrollTrigger 제거
+    if (window.ScrollTrigger) {
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger && trigger.trigger.closest(".section7")) {
+          trigger.kill();
+        }
+      });
+    }
+
+    return; // ✅ 더 이상 아래 코드 실행 안 함
   }
-}).from(".section7 .imgbox .top_img .big_textbox", {
-  left: '50%',
-}).from(".section7 .imgbox .bottom_img .big_textbox", {
-  right: '50%',
-})
-  .to(".mainImgWrap", {
-    marginLeft: -1050,
-    top: "1600%",
-    x: 1900,
-    scale: 1,
-    rotate: 0
+
+  // 🔹 기존 ScrollTrigger 중복 제거
+  ScrollTrigger.getAll().forEach(trigger => {
+    if (trigger.vars.trigger === ".section7") {
+      trigger.kill();
+    }
   });
+
+  // 🔹 430px 초과 구간 (PC / 태블릿)
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section7",
+      start: "top 50%",
+      end: 'bottom top',
+      scrub: true,
+      pin: false // ✅ pin 기능 완전 비활성화
+    }
+  }).from(".section7 .imgbox .top_img .big_textbox", {
+    left: '50%',
+  }).from(".section7 .imgbox .bottom_img .big_textbox", {
+    right: '50%',
+  })
+    .to(".mainImgWrap", {
+      marginLeft: -1050,
+      top: "1600%",
+      x: 1900,
+      scale: 1,
+      rotate: 0
+    });
+}
+
+// 최초 실행
+setupSection7Animation();
+
+// 🔹 리사이즈 대응
+let resizeTimer7;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer7);
+  resizeTimer7 = setTimeout(() => {
+    setupSection7Animation();
+    ScrollTrigger.refresh();
+  }, 300);
+});
+
 
 
 
 // ------------------------------------------------
 // 10. Section 8 : Video
 // ------------------------------------------------
-gsap.timeline({
-  scrollTrigger: {
-    trigger: ".section8",
-    start: "top top",
-    end: 'bottom top',
-    scrub: true,
-    pin: true
+function setupSection8Animation() {
+  const video8 = document.getElementById("video8");
+  
+  // 🔹 430px 이하에서는 GSAP 애니메이션 비활성화하고 영상 재생에 집중
+  if (window.innerWidth <= 430) {
+    // 기존 ScrollTrigger 제거
+    ScrollTrigger.getAll().forEach(trigger => {
+      if (trigger.trigger && trigger.trigger.closest(".section8")) {
+        trigger.kill();
+      }
+    });
+    
+    // 모바일에서 영상 즉시 표시 및 재생 강제
+    if (video8) {
+      gsap.set(video8, {
+        scale: 1,
+        transform: "none",
+        opacity: 1,
+        visibility: "visible"
+      });
+      
+      // 모바일에서 영상 재생 강제 실행
+      const playVideo = () => {
+        video8.play().catch(e => {
+          console.log("영상 자동재생 실패, 사용자 상호작용 필요:", e);
+          // 자동재생 실패 시 사용자에게 알림 (선택사항)
+        });
+      };
+      
+      // 페이지 로드 후 영상 재생 시도
+      setTimeout(playVideo, 500);
+      
+      // 섹션8이 화면에 보일 때 영상 재생 시도
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            playVideo();
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(document.querySelector(".section8"));
+    }
+    
+    return; // ✅ 더 이상 아래 코드 실행 안 함
   }
-})
-  .to("#video8", {
-    scale: 1.8,
-  });
+  
+  // 🔹 PC/태블릿 이상: 기존 GSAP 애니메이션 적용
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".section8",
+      start: "top top",
+      end: 'bottom top',
+      scrub: true,
+      pin: true
+    }
+  })
+    .to("#video8", {
+      scale: 1.8,
+    });
+}
 
+// 최초 실행
+setupSection8Animation();
+
+// 🔹 리사이즈 대응
+let resizeTimer8;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer8);
+  resizeTimer8 = setTimeout(() => {
+    setupSection8Animation();
+    ScrollTrigger.refresh();
+  }, 300);
+});
 
 
 
