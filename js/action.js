@@ -480,7 +480,7 @@ ScrollTrigger.matchMedia({
           start: "30% 80%",
           toggleActions: "play none none reverse"
         },
-        x: 500,
+        x: -50,
         y: -50,
         rotateY: 190,
         autoAlpha: 0,
@@ -562,10 +562,10 @@ ScrollTrigger.matchMedia({
         scrub: true,
       }
     }).from(".section7 .imgbox .top_img .big_textbox", {
-      left: '50%',
+      left: '-50%',
       y:400
     }).from(".section7 .imgbox .bottom_img .big_textbox", {
-      right: '50%',
+      left: '-50%',
       y:400
     })
 
@@ -575,45 +575,45 @@ ScrollTrigger.matchMedia({
     // ------------------------------------------------
     // Section 8 : Video
     // ------------------------------------------------
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section8",
-        start: "top top",
-        end: 'bottom top',
-        scrub: true,
-        pin: true
-      }
-    })
-    .to("#video8", {
-      scale: 0.8,
-    });
+    // gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".section8",
+    //     start: "top top",
+    //     end: 'bottom top',
+    //     scrub: true,
+    //     pin: true
+    //   }
+    // })
+    // .to("#video8", {
+    //   scale: 0.8,
+    // });
 
     // ------------------------------------------------
     // Section 9 : photo
     // ------------------------------------------------
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section9",
-        start: "top top",
-        end: 'center top',
-        scrub: true,
-      }
-    })
-    .from(".photo1 img", { left: -100, top: -100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo2 img", { left: -150, top: -230, autoAlpha: 0 }, 'photoImg')
-    .from(".photo3 img", { left: 0, top: -210, autoAlpha: 0 }, 'photoImg')
-    .from(".photo4 img", { left: 30, top: -150, autoAlpha: 0 }, 'photoImg')
-    .from(".photo5 img", { left: 100, top: -200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo6 img", { left: 50, top: 70, autoAlpha: 0 }, 'photoImg')
-    .from(".photo7 img", { left: -100, top: -200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo8 img", { left: -100, top: 300, autoAlpha: 0 }, 'photoImg')
-    .from(".photo9 img", { left: 350, top: -100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo10 img", { left: -150, top: 0, autoAlpha: 0 }, 'photoImg')
-    .from(".photo11 img", { left: -150, top: 150, autoAlpha: 0 }, 'photoImg')
-    .from(".photo12 img", { left: -150, top: 50, autoAlpha: 0 }, 'photoImg')
-    .from(".photo13 img", { left: 200, top: 100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo14 img", { left: 300, top: 200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo15 img", { left: 300, top: 250, autoAlpha: 0 }, 'photoImg');
+    // gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".section9",
+    //     start: "top top",
+    //     end: 'center top',
+    //     scrub: true,
+    //   }
+    // })
+    // .from(".photo1 img", { left: -100, top: -100, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo2 img", { left: -150, top: -230, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo3 img", { left: 0, top: -210, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo4 img", { left: 30, top: -150, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo5 img", { left: 100, top: -200, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo6 img", { left: 50, top: 70, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo7 img", { left: -100, top: -200, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo8 img", { left: -100, top: 300, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo9 img", { left: 350, top: -100, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo10 img", { left: -150, top: 0, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo11 img", { left: -150, top: 150, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo12 img", { left: -150, top: 50, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo13 img", { left: 200, top: 100, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo14 img", { left: 300, top: 200, autoAlpha: 0 }, 'photoImg')
+    // .from(".photo15 img", { left: 300, top: 250, autoAlpha: 0 }, 'photoImg');
     // console.log("모바일 모드 활성화");
     
     // 모바일 안내 메시지
