@@ -590,27 +590,48 @@ ScrollTrigger.matchMedia({
       // ------------------------------------------------
       // Section 8 : Video
       // ------------------------------------------------
-      (function ensureSection8VideoPlaysMobile() {
-        const video = document.getElementById("video8");
-        if (!video) return;
+      const video8 = document.getElementById("video8");
+if (video8) {
+  // 비디오 강제 로드 및 재생
+  video8.load();
+  
+  const playVideo = () => {
+    video8.muted = true;
+    const playPromise = video8.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        console.log("자동 재생 실패:", error);
+        // 사용자 인터랙션 후 재시도
+        document.addEventListener('touchstart', function playOnTouch() {
+          video8.play();
+          document.removeEventListener('touchstart', playOnTouch);
+        }, { once: true });
+      });
+    }
+  };
 
-        const tryPlay = () => {
-          video.muted = true;
-          video.play().catch(() => { /* 사용자 제스처 전에는 거부될 수 있음 */ });
-        };
+  // 비디오 로드 완료 후 재생
+  if (video8.readyState >= 3) {
+    playVideo();
+  } else {
+    video8.addEventListener('loadeddata', playVideo, { once: true });
+    video8.addEventListener('canplay', playVideo, { once: true });
+  }
 
-        if (video.readyState >= 2) tryPlay();
-        else video.addEventListener("loadeddata", tryPlay, { once: true });
-
-        const io = new IntersectionObserver(entries => {
-          entries.forEach(e => {
-            if (e.isIntersecting) tryPlay();
-            else video.pause();
-          });
-        }, { threshold: 0.25 });
-        io.observe(video);
-      })();
-
+  // Intersection Observer로 화면에 보일 때 재생
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        playVideo();
+      } else {
+        video8.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  
+  observer.observe(video8);
+}
 
     // gsap.timeline({
     //   scrollTrigger: {
