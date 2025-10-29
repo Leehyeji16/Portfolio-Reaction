@@ -587,26 +587,29 @@ ScrollTrigger.matchMedia({
 
 
 
-    // ------------------------------------------------
-    // Section 8 : Video
-    // ------------------------------------------------
-    (function ensureSection8VideoPlaysMobile() {
-      const video = document.getElementById("video8");
-      if (!video) return;
-      const tryPlay = () => {
-        video.muted = true;
-        video.play().catch(() => { /* 사용자 제스처 전에는 거부될 수 있음 */ });
-      };
-      if (video.readyState >= 2) tryPlay();
-      else video.addEventListener("loadeddata", tryPlay, { once: true });
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) tryPlay(); else video.pause();
-        });
-      }, { threshold: 0.25 });
-      io.observe(video);
-    })();
+      // ------------------------------------------------
+      // Section 8 : Video
+      // ------------------------------------------------
+      (function ensureSection8VideoPlaysMobile() {
+        const video = document.getElementById("video8");
+        if (!video) return;
 
+        const tryPlay = () => {
+          video.muted = true;
+          video.play().catch(() => { /* 사용자 제스처 전에는 거부될 수 있음 */ });
+        };
+
+        if (video.readyState >= 2) tryPlay();
+        else video.addEventListener("loadeddata", tryPlay, { once: true });
+
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) tryPlay();
+            else video.pause();
+          });
+        }, { threshold: 0.25 });
+        io.observe(video);
+      })();
 
 
     // gsap.timeline({
