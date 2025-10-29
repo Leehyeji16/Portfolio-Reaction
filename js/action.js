@@ -260,18 +260,21 @@ ScrollTrigger.matchMedia({
     // ------------------------------------------------
     // Section 8 : Video
     // ------------------------------------------------
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section8",
-        start: "top top",
-        end: 'bottom top',
-        scrub: true,
-        pin: true
-      }
-    })
-      .to("#video8", {
-        scale: 1.8,
-      });
+    const video8 = document.querySelector(".section8 video");
+    if (video8) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: ".section8",
+          start: "top top",
+          end: 'bottom top',
+          scrub: true,
+          pin: true
+        }
+      })
+        .to(video8, {
+          scale: 1.8,
+        });
+    }
 
     // ------------------------------------------------
     // Section 9 : photo
