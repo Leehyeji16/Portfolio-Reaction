@@ -95,7 +95,12 @@
     .section7 .imgbox .bottom_img .big_textbox .title1 .Arrow img{width: 20vw;}
     .section7 .subFont {font-family: 'Pretendard-Regular'; font-weight: normal;}
     
-    .section8 video {width: 100%; display: block;}
+    .section8 video {
+    width: 100%; 
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
     .section8 h1 {font-size: 50px;display: flex;justify-content: center;text-align: center;}
 
     .section9 .centerbox {min-width: auto;}
