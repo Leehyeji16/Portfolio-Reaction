@@ -95,9 +95,8 @@
     .section7 .imgbox .bottom_img .big_textbox .title1 .Arrow img{width: 20vw;}
     .section7 .subFont {font-family: 'Pretendard-Regular'; font-weight: normal;}
     
-    .section8 video {width: 100%; height: auto; display: block;}
+    .section8 video {width: 100%; display: block;}
     .section8 h1 {font-size: 50px;display: flex;justify-content: center;text-align: center;}
-    .section8 {padding: 0 20px;}
 
     .section9 .centerbox {min-width: auto;}
     .section9 .photo-wall {grid-template-columns: repeat(2, 1fr);width: 50vw;}
