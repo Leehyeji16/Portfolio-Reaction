@@ -13,26 +13,26 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 // ScrollTrigger.matchMedia로 반응형 처리
 // ------------------------------------------------
 ScrollTrigger.matchMedia({
-  
+
   // ===== PC 버전 (641px 이상) =====
-  "(min-width: 641px)": function() {
-    
+  "(min-width: 641px)": function () {
+
     // Lenis 초기화
     lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true
     });
-    
+
     // Lenis와 ScrollTrigger 연동
     lenis.on('scroll', ScrollTrigger.update);
-    
+
     function raf(time) {
       lenis.raf(time);
       lenisRAF = requestAnimationFrame(raf);
     }
     lenisRAF = requestAnimationFrame(raf);
-    
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
@@ -104,18 +104,18 @@ ScrollTrigger.matchMedia({
         pin: true
       }
     })
-    .to(".mainImgWrap", {
-      marginLeft: -150,
-      top: "225%",
-      scale: 0.05,
-      rotate: 0
-    })
-    .from(".skill-box li", {
-      autoAlpha: 0,
-      y: 100,
-      backgroundColor: "purple",
-      stagger: 0.2
-    });
+      .to(".mainImgWrap", {
+        marginLeft: -150,
+        top: "225%",
+        scale: 0.05,
+        rotate: 0
+      })
+      .from(".skill-box li", {
+        autoAlpha: 0,
+        y: 100,
+        backgroundColor: "purple",
+        stagger: 0.2
+      });
 
     // ------------------------------------------------
     // Section 4 : Web Design (SplitText)
@@ -222,17 +222,17 @@ ScrollTrigger.matchMedia({
       y: 50,
       autoAlpha: 0,
     }, 'bigtextbox')
-    .from(".section6 .rigth_img .big_textbox", {
-      x: 100,
-      y: -50,
-      autoAlpha: 0,
-    }, 'bigtextbox')
-    .to(".mainImgWrap", {
-      marginLeft: -1050,
-      top: "1500%",
-      scale: 1,
-      rotate: 0
-    });
+      .from(".section6 .rigth_img .big_textbox", {
+        x: 100,
+        y: -50,
+        autoAlpha: 0,
+      }, 'bigtextbox')
+      .to(".mainImgWrap", {
+        marginLeft: -1050,
+        top: "1500%",
+        scale: 1,
+        rotate: 0
+      });
 
     // ------------------------------------------------
     // Section 7 : Collaborative Work
@@ -249,13 +249,13 @@ ScrollTrigger.matchMedia({
     }).from(".section7 .imgbox .bottom_img .big_textbox", {
       right: '50%',
     })
-    .to(".mainImgWrap", {
-      marginLeft: -1050,
-      top: "1600%",
-      x: 1900,
-      scale: 1,
-      rotate: 0
-    });
+      .to(".mainImgWrap", {
+        marginLeft: -1050,
+        top: "1600%",
+        x: 1900,
+        scale: 1,
+        rotate: 0
+      });
 
     // ------------------------------------------------
     // Section 8 : Video
@@ -269,9 +269,9 @@ ScrollTrigger.matchMedia({
         pin: true
       }
     })
-    .to("#video8", {
-      scale: 1.8,
-    });
+      .to("#video8", {
+        scale: 1.8,
+      });
 
     // ------------------------------------------------
     // Section 9 : photo
@@ -285,26 +285,26 @@ ScrollTrigger.matchMedia({
         pin: true
       }
     })
-    .from(".photo1 img", { left: -100, top: -100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo2 img", { left: -150, top: -230, autoAlpha: 0 }, 'photoImg')
-    .from(".photo3 img", { left: 0, top: -210, autoAlpha: 0 }, 'photoImg')
-    .from(".photo4 img", { left: 30, top: -150, autoAlpha: 0 }, 'photoImg')
-    .from(".photo5 img", { left: 100, top: -200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo6 img", { left: 50, top: 70, autoAlpha: 0 }, 'photoImg')
-    .from(".photo7 img", { left: -100, top: -200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo8 img", { left: -100, top: 300, autoAlpha: 0 }, 'photoImg')
-    .from(".photo9 img", { left: 350, top: -100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo10 img", { left: -150, top: 0, autoAlpha: 0 }, 'photoImg')
-    .from(".photo11 img", { left: -150, top: 150, autoAlpha: 0 }, 'photoImg')
-    .from(".photo12 img", { left: -150, top: 50, autoAlpha: 0 }, 'photoImg')
-    .from(".photo13 img", { left: 200, top: 100, autoAlpha: 0 }, 'photoImg')
-    .from(".photo14 img", { left: 300, top: 200, autoAlpha: 0 }, 'photoImg')
-    .from(".photo15 img", { left: 300, top: 250, autoAlpha: 0 }, 'photoImg');
+      .from(".photo1 img", { left: -100, top: -100, autoAlpha: 0 }, 'photoImg')
+      .from(".photo2 img", { left: -150, top: -230, autoAlpha: 0 }, 'photoImg')
+      .from(".photo3 img", { left: 0, top: -210, autoAlpha: 0 }, 'photoImg')
+      .from(".photo4 img", { left: 30, top: -150, autoAlpha: 0 }, 'photoImg')
+      .from(".photo5 img", { left: 100, top: -200, autoAlpha: 0 }, 'photoImg')
+      .from(".photo6 img", { left: 50, top: 70, autoAlpha: 0 }, 'photoImg')
+      .from(".photo7 img", { left: -100, top: -200, autoAlpha: 0 }, 'photoImg')
+      .from(".photo8 img", { left: -100, top: 300, autoAlpha: 0 }, 'photoImg')
+      .from(".photo9 img", { left: 350, top: -100, autoAlpha: 0 }, 'photoImg')
+      .from(".photo10 img", { left: -150, top: 0, autoAlpha: 0 }, 'photoImg')
+      .from(".photo11 img", { left: -150, top: 150, autoAlpha: 0 }, 'photoImg')
+      .from(".photo12 img", { left: -150, top: 50, autoAlpha: 0 }, 'photoImg')
+      .from(".photo13 img", { left: 200, top: 100, autoAlpha: 0 }, 'photoImg')
+      .from(".photo14 img", { left: 300, top: 200, autoAlpha: 0 }, 'photoImg')
+      .from(".photo15 img", { left: 300, top: 250, autoAlpha: 0 }, 'photoImg');
 
     // ⭐ cleanup 함수 (PC → 모바일로 전환될 때 실행됨)
     return () => {
       console.log("PC 모드 종료 - 정리 중...");
-      
+
       // Lenis 정리
       if (lenisRAF) {
         cancelAnimationFrame(lenisRAF);
@@ -314,10 +314,10 @@ ScrollTrigger.matchMedia({
         lenis.destroy();
         lenis = null;
       }
-      
+
       // GSAP ticker 정리
-      gsap.ticker.remove(() => {});
-      
+      gsap.ticker.remove(() => { });
+
       // SplitText 정리
       document.querySelectorAll('[class*="split"]').forEach(el => {
         if (el._splitText) {
@@ -328,7 +328,7 @@ ScrollTrigger.matchMedia({
   },
 
   // ===== 모바일 버전 (640px 이하) =====
-  "(max-width: 640px)": function() {
+  "(max-width: 640px)": function () {
 
     // Lenis 초기화
     lenis = new Lenis({
@@ -336,16 +336,16 @@ ScrollTrigger.matchMedia({
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true
     });
-    
+
     // Lenis와 ScrollTrigger 연동
     lenis.on('scroll', ScrollTrigger.update);
-    
+
     function raf(time) {
       lenis.raf(time);
       lenisRAF = requestAnimationFrame(raf);
     }
     lenisRAF = requestAnimationFrame(raf);
-    
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
     });
@@ -353,7 +353,7 @@ ScrollTrigger.matchMedia({
 
 
 
-    
+
     let split1 = SplitText.create(".section1 .text_box", { type: "chars" });
     gsap.from(split1.chars, {
       x: 500,
@@ -429,18 +429,18 @@ ScrollTrigger.matchMedia({
         pin: true
       }
     })
-    .to(".mainImgWrap", {
-      marginLeft: -150,
-      top: "225%",
-      scale: 0.05,
-      rotate: 0
-    })
-    .from(".skill-box li", {
-      autoAlpha: 0,
-      y: 100,
-      backgroundColor: "purple",
-      stagger: 0.2
-    });
+      .to(".mainImgWrap", {
+        marginLeft: -150,
+        top: "225%",
+        scale: 0.05,
+        rotate: 0
+      })
+      .from(".skill-box li", {
+        autoAlpha: 0,
+        y: 100,
+        backgroundColor: "purple",
+        stagger: 0.2
+      });
 
     // // ------------------------------------------------
     // // Section 4 : Web Design (SplitText)
@@ -472,7 +472,20 @@ ScrollTrigger.matchMedia({
     //   }
     // });
 
-    document.querySelectorAll(".section4 .text").forEach((box) => {
+    gsap.utils.toArray(".section4 .content_box").forEach((box) => {
+      gsap.from(box, {
+        x: -100,  // 왼쪽에서 등장
+        autoAlpha: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+    });
+
+    document.querySelectorAll(".section4 .text, .section4 .rowFont").forEach((box) => {
       let split = SplitText.create(box, { type: "chars" });
       gsap.from(split.chars, {
         scrollTrigger: {
@@ -507,18 +520,20 @@ ScrollTrigger.matchMedia({
     // ------------------------------------------------
     // Section 5 : Banner (가로 스크롤)
     // ------------------------------------------------
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: ".section5",
-          start: "top top",
-          end:"center top",
-          scrub: true,
-        }
-      }).from(".section5 li",
-        { marginTop: 100,
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".section5",
+        start: "top top",
+        end: "center top",
+        scrub: true,
+      }
+    }).from(".section5 li",
+      {
+        marginTop: 100,
         stagger: 0.05,
-        duration: 1 }
-      )
+        duration: 1
+      }
+    )
 
     // ------------------------------------------------
     // Section 6 : App Design
@@ -557,16 +572,16 @@ ScrollTrigger.matchMedia({
     gsap.timeline({
       scrollTrigger: {
         trigger: ".section7",
-        start: "top 50%",
+        start: "top 80%",
         end: 'bottom top',
         scrub: true,
       }
     }).from(".section7 .imgbox .top_img .big_textbox", {
-      left: '-50%',
-      y:400
+      left: '-15%',
+      y: 80
     }).from(".section7 .imgbox .bottom_img .big_textbox", {
-      left: '-50%',
-      y:400
+      left: '-15%',
+      y: 80
     })
 
 
@@ -615,11 +630,11 @@ ScrollTrigger.matchMedia({
     // .from(".photo14 img", { left: 300, top: 200, autoAlpha: 0 }, 'photoImg')
     // .from(".photo15 img", { left: 300, top: 250, autoAlpha: 0 }, 'photoImg');
     // console.log("모바일 모드 활성화");
-    
+
     // 모바일 안내 메시지
     // const existingMsg = document.querySelector("#mobileNotice");
     // if (existingMsg) existingMsg.remove();
-    
+
     // const notice = document.createElement("div");
     // notice.id = "mobileNotice";
     // notice.textContent = "📱 모바일 화면 (GSAP 비활성화됨)";
@@ -637,7 +652,7 @@ ScrollTrigger.matchMedia({
     //   opacity: 0.9
     // });
     // document.body.appendChild(notice);
-    
+
     // ⭐ cleanup 함수 (모바일 → PC로 전환될 때 실행됨)
     return () => {
       console.log("모바일 모드 종료");
